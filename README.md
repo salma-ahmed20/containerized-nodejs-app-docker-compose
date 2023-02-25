@@ -10,6 +10,8 @@ can spin everything up or tear it all down.
 ## What is NGINX?
 NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. 
 
-
-
+## Steps
+- creating docker file for NGINX.
+- creating two docker files for the two websites that will use NGINX load balancer on.
+- creating docker compose yml file that will define the services we will use (redis, nginx, two websites)
 
