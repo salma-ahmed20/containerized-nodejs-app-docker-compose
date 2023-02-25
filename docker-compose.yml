@@ -1,0 +1,39 @@
+services:
+  nginx:
+    build: ./nginx-service
+    restart: always
+    volumes:
+      - nginx_data:/data
+    ports:
+      - 80:80
+    depends_on:
+      - web01
+      - web02
+  redis:
+    image: redis
+    restart: always
+    volumes:
+      - redis_data:/data
+    ports:
+      - 6379:6379
+  web01:
+    build: ./web01/usr/src/app
+    restart: always
+    volumes:
+      - web01_data:/data
+    ports:
+      - 81:5000
+
+  web02:
+    build: ./web02/usr/src/app
+    restart: always
+    volumes:
+      - web02_data:/data
+    ports:
+      - 82:5000
+
+volumes:
+  nginx_data:
+  redis_data:
+  web01_data:
+  web02_data:
